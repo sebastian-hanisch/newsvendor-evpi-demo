@@ -196,7 +196,7 @@ st.markdown(
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
 | **Die 200 Szenarien sind die Verteilung** | Bei einer echten Stichprobe aus unbekannter Verteilung ist der Wert des besten Plans nach unten verzerrt: EVPI und VSS einer Stichprobe sind selbst Schätzungen mit Fehler. Hier ist dieser Fehler ausgeklammert. | [Stichproben-Demo (SAA)](https://github.com/sebastian-hanisch/saa-demo): zieht S Szenarien und misst Lücke und Täuschung des Optimalwerts |
-| **Der Erwartungswert ist das Ziel** | Ein Plan, der im Mittel am billigsten ist, kann im Schwanz der Verteilung sehr teuer werden; EVPI und VSS sagen darüber nichts. | [CVaR-Demo](https://github.com/sebastian-hanisch/cvar-demo): Risiko als Ziel, Preis des Schwanzes |
+| **Der Erwartungswert ist das Ziel** | Ein Plan, der im Mittel am billigsten ist, kann im Tail der Verteilung sehr teuer werden; EVPI und VSS sagen darüber nichts. | [CVaR-Demo](https://github.com/sebastian-hanisch/cvar-demo): Risiko als Ziel, Preis des Tails |
 | **EVPI ist eine Obergrenze** | Kein reales Informationssystem liefert das einzelne Szenario vorab. Die Teilinformation zeigt, wie viel davon schon ein einzelner gemeinsamer Faktor holt. | – |
 | **Lognormale Nachfrage mit einem gemeinsamen Faktor** | Schwerere Ränder oder Sprünge verändern, wie viel der Durchschnittsplan verschenkt. Hier nicht abgebildet. | – |
 | **Eine Instanz aus sechs Standorten** | Die Zahlen hängen an Instanz und Kosten. Das Experiment zeigt die Spannweite über drei feste Instanzen, nicht über alle möglichen. | – |
