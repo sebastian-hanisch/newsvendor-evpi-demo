@@ -193,13 +193,14 @@ st.markdown("---")
 st.subheader("🚧 Wo die Annahmen enden")
 st.markdown(
     """
-| Annahme | Was passiert, wenn sie verletzt ist |
-|---|---|
-| **Die 200 Szenarien sind die Verteilung** | Bei einer echten Stichprobe aus unbekannter Verteilung ist der Wert des besten Plans nach unten verzerrt: EVPI und VSS einer Stichprobe sind selbst Schätzungen mit Fehler. Hier ist dieser Fehler ausgeklammert. |
-| **EVPI ist eine Obergrenze** | Kein reales Informationssystem liefert das einzelne Szenario vorab. Die Teilinformation zeigt, wie viel davon schon ein einzelner gemeinsamer Faktor holt. |
-| **Lognormale Nachfrage mit einem gemeinsamen Faktor** | Schwerere Ränder oder Sprünge verändern, wie viel der Durchschnittsplan verschenkt. Hier nicht abgebildet. |
-| **Eine Instanz aus sechs Standorten** | Die Zahlen hängen an Instanz und Kosten. Das Experiment zeigt die Spannweite über drei feste Instanzen, nicht über alle möglichen. |
-| **Preise und Grenzen sind fest** | Zukauf höchstens 50 % der mittleren Nachfrage, Fehlmenge dreifach bestraft. Andere Verhältnisse verschieben, wo der Durchschnittsplan auf einen Knick fällt. |
+| Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
+|---|---|---|
+| **Die 200 Szenarien sind die Verteilung** | Bei einer echten Stichprobe aus unbekannter Verteilung ist der Wert des besten Plans nach unten verzerrt: EVPI und VSS einer Stichprobe sind selbst Schätzungen mit Fehler. Hier ist dieser Fehler ausgeklammert. | [Stichproben-Demo (SAA)](https://github.com/sebastian-hanisch/saa-demo): zieht S Szenarien und misst Lücke und Täuschung des Optimalwerts |
+| **Der Erwartungswert ist das Ziel** | Ein Plan, der im Mittel am billigsten ist, kann im Schwanz der Verteilung sehr teuer werden; EVPI und VSS sagen darüber nichts. | [CVaR-Demo](https://github.com/sebastian-hanisch/cvar-demo): Risiko als Ziel, Preis des Schwanzes |
+| **EVPI ist eine Obergrenze** | Kein reales Informationssystem liefert das einzelne Szenario vorab. Die Teilinformation zeigt, wie viel davon schon ein einzelner gemeinsamer Faktor holt. | – |
+| **Lognormale Nachfrage mit einem gemeinsamen Faktor** | Schwerere Ränder oder Sprünge verändern, wie viel der Durchschnittsplan verschenkt. Hier nicht abgebildet. | – |
+| **Eine Instanz aus sechs Standorten** | Die Zahlen hängen an Instanz und Kosten. Das Experiment zeigt die Spannweite über drei feste Instanzen, nicht über alle möglichen. | – |
+| **Preise und Grenzen sind fest** | Zukauf höchstens 50 % der mittleren Nachfrage, Fehlmenge dreifach bestraft. Andere Verhältnisse verschieben, wo der Durchschnittsplan auf einen Knick fällt. | – |
 """
 )
 
@@ -213,10 +214,13 @@ Flüsse $y_{jk} \ge 0$ (Kapazität von $j$ deckt Bedarf von $k$, Kosten $t_{jk}$
 $w_k \ge 0$ zur Strafe $p$:
 $$Q(x,\xi)=\min \sum_{j,k} t_{jk}y_{jk}+\sum_k s_k u_k+\sum_k p\,w_k \quad\text{u. d. N.}\quad \sum_k y_{jk}\le x_j,\;\; \sum_j y_{jk}+u_k+w_k=D_k.$$
 
-**Drei Kosten.** Mit $S$ gleich wahrscheinlichen Szenarien $\xi_s$:
-$$\mathrm{RP}=\min_x\; c\,\mathbf 1^\top x+\tfrac1S\sum_s Q(x,\xi_s),\qquad
-\mathrm{WS}=\tfrac1S\sum_s \min_{x}\big[c\,\mathbf 1^\top x+Q(x,\xi_s)\big],$$
-$$\mathrm{EEV}=c\,\mathbf 1^\top \bar x+\tfrac1S\sum_s Q(\bar x,\xi_s),\qquad \bar x \in \arg\min_x\; c\,\mathbf 1^\top x+Q(x,\bar\xi),\;\; \bar\xi=\tfrac1S\sum_s\xi_s.$$
+**Drei Kosten.** Mit $S$ gleich wahrscheinlichen Szenarien $\xi_s$ und dem Plan $\bar x$ für die mittlere Nachfrage $\bar\xi=\tfrac1S\sum_s\xi_s$:
+
+$$\mathrm{RP}=\min_x\; c\,\mathbf 1^\top x+\tfrac1S\sum_s Q(x,\xi_s)$$
+
+$$\mathrm{WS}=\tfrac1S\sum_s \min_{x}\big[c\,\mathbf 1^\top x+Q(x,\xi_s)\big]$$
+
+$$\mathrm{EEV}=c\,\mathbf 1^\top \bar x+\tfrac1S\sum_s Q(\bar x,\xi_s),\qquad \bar x \in \arg\min_x\; c\,\mathbf 1^\top x+Q(x,\bar\xi)$$
 
 **Werte der Information.** $\mathrm{EVPI}=\mathrm{RP}-\mathrm{WS}\ge 0$ und $\mathrm{VSS}=\mathrm{EEV}-\mathrm{RP}\ge 0$, also $\mathrm{WS}\le \mathrm{RP}\le \mathrm{EEV}$.
 Der erste Schritt gilt, weil jede Entscheidung, die für alle Szenarien gleich ist, auch je Szenario erlaubt wäre. Der zweite, weil $\bar x$ für das Problem

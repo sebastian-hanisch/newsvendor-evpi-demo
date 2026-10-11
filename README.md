@@ -48,8 +48,9 @@ Zahlen mit dem Zufalls-Seed der Voreinstellung (7), jeweils in `tests/test_claim
 
 ## Ehrliche Grenzen
 
-- **Die Szenarien sind die Verteilung.** Bei einer echten Stichprobe aus unbekannter Verteilung sind EVPI und VSS selbst Schätzungen, und der Optimalwert einer Stichprobe ist nach unten verzerrt. Dieser Fehler ist hier ausgeklammert.
+- **Die Szenarien sind die Verteilung.** Bei einer echten Stichprobe aus unbekannter Verteilung sind EVPI und VSS selbst Schätzungen, und der Optimalwert einer Stichprobe ist nach unten verzerrt. Dieser Fehler ist hier ausgeklammert. Ihn behandelt die [Stichproben-Demo (SAA)](https://github.com/sebastian-hanisch/saa-demo) der Linie.
 - **EVPI ist eine Obergrenze.** Kein reales Informationssystem liefert das einzelne Szenario vorab; die Teilinformation zeigt nur, wie viel ein einzelner gemeinsamer Faktor schon holt.
+- **Nur der Erwartungswert.** Ein Plan, der im Mittel am billigsten ist, kann im Schwanz sehr teuer werden; EVPI und VSS sagen darüber nichts. Das Risiko als Ziel zeigt die [CVaR-Demo](https://github.com/sebastian-hanisch/cvar-demo) der Linie.
 - **Eine Familie von Instanzen.** Sechs Standorte, lognormal, ein gemeinsamer Faktor, feste Preise und Grenzen. Das Experiment zeigt die Spannweite über drei feste Instanzen, nicht über alle möglichen.
 - **Das Bild hängt an der Umlagerung.** Der VSS ist hier vor allem eine Folge der Möglichkeiten nach der Realisierung, nicht der Streuung; mit anderen Kostenstrukturen kann es anders aussehen.
 - **Nur ein Informationsstand dazwischen.** Die Teilinformation nutzt den gemeinsamen Faktor in fünf Stufen; andere Teilinformation (einzelne Standorte, verrauschte Hinweise) ist nicht abgebildet.
