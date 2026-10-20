@@ -37,9 +37,9 @@ Zahlen mit dem Zufalls-Seed der Voreinstellung (7), jeweils in `tests/test_claim
 
 | Frage | Befund |
 |---|---|
-| **Voreinstellung:** lohnt Information, reicht der Durchschnitt? | EVPI 7,4 %, VSS 0,13 % (über drei Instanzen VSS 0,15 bis 0,43 %): Der Durchschnittsplan ist praktisch so gut wie der Plan unter Unsicherheit, Vorwissen wäre bis zu 7,4 % wert. |
+| **Voreinstellung:** lohnt Information, reicht der Durchschnitt? | EVPI 7,4 %, VSS 0,13 % (Instanz mit Zufalls-Seed 7; über die drei festen Instanzen mit den Zufalls-Seeds 100000 bis 100002 VSS 0,15 bis 0,43 %): Der Durchschnittsplan ist praktisch so gut wie der Plan unter Unsicherheit, Vorwissen wäre bis zu 7,4 % wert. |
 | **Was holt ein einzelner gemeinsamer Faktor vom EVPI?** | 39 % in der Voreinstellung, 8 bis 11 % ohne Umlagerung und mit knappem Budget, rund 50 % bei hoher Streuung und weitem Budget. |
-| **Wann versagt der Durchschnittsplan?** | Ohne Umlagerung und mit Budget 0,85: VSS 3,8 % (4,4 bis 4,9 % über drei Instanzen). Bei Zukaufpreis 1,2 ohne Umlagerung: VSS 2,2 %. |
+| **Wann versagt der Durchschnittsplan?** | Ohne Umlagerung und mit Budget 0,85: VSS 3,8 % (Zufalls-Seed 7; 4,4 bis 4,9 % über die drei festen Instanzen). Bei Zukaufpreis 1,2 ohne Umlagerung: VSS 2,2 %. |
 | **Ist der Durchschnittsplan bei hoher Streuung automatisch schlecht?** | Nein: bei σ = 0,5, Umlagerung und Budget 1,3 liegt der EVPI bei 19,5 %, der VSS bei 0,14 %. |
 | **Kann der VSS größer als der EVPI sein?** | Ja: σ = 0,10, Budget 0,8, keine Umlagerung: VSS 4,1 %, EVPI 1,2 %. |
 | **Was bewirkt die Streuung?** | Der EVPI wächst mit σ (mit Umlagerung von 1,6 % bei σ = 0,1 auf 11,4 % bei σ = 0,6). Der VSS steigt nicht mit: mit Umlagerung 0,25 bis 0,39 %, ohne 1,4 bis 2,5 %, ohne Umlagerung fällt er von σ = 0,2 bis 0,6. |

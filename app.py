@@ -49,6 +49,17 @@ und der Expander **📐 Mathematische Formulierung**.
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/newsvendor-evpi-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Wer Kapazität vorhalten muss, bevor die Nachfrage bekannt ist, plant im Dunkeln. Fehlt später etwas, muss man umlagern, teuer zukaufen oder eine Fehlmenge hinnehmen. Die Demo stellt zwei Fragen. Der **EVPI** sagt, was es höchstens wert wäre, die Nachfrage vorher zu kennen, als wäre man Hellseher. Der **VSS** sagt, was es bringt, die Streuung der Nachfrage in die Planung aufzunehmen, statt nur mit dem Durchschnitt zu planen. Beide sind Kostenabstände, und einer kann groß sein, während der andere winzig bleibt. Dann gehört Geld eher in bessere Prognosen als in ein aufwendigeres Modell. Es ist ein stark vereinfachtes Modell mit erfundenen Standorten und Preisen.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/newsvendor-evpi-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 with st.expander("So funktioniert die Wert-der-Information-Analyse", expanded=True):
     st.markdown(
         """
@@ -207,6 +218,27 @@ st.markdown(
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/newsvendor-evpi-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind mehrere Standorte, gleich wahrscheinliche Nachfrage-Szenarien und die Kosten für Vorhaltung, Umlagerung, Zukauf und Fehlmenge. Gesucht sind die Kosten unter vier Informationsständen und daraus der Wert vollständiger Information (EVPI) und der Wert der stochastischen Lösung (VSS).
+
+| Symbol | Bedeutung |
+|---|---|
+| $x_j$, $c$, $B$ | Kapazität am Standort $j$ (Stufe 1), Vorhaltungskosten je Einheit, Budget |
+| $\xi_s$, $S$ | Nachfrage-Szenario, Zahl der gleich wahrscheinlichen Szenarien |
+| $Q(x,\xi)$ | Kosten der zweiten Stufe (Umlagerung, Zukauf, Fehlmenge) bei Plan $x$ und Nachfrage $\xi$ |
+| $\bar\xi$, $\bar x$ | mittlere Nachfrage, bester Plan für die mittlere Nachfrage |
+| $\mathrm{RP}$ | Kosten des einen Plans, der im Mittel am billigsten ist (Verteilung bekannt) |
+| $\mathrm{WS}$ | Kosten des Hellsehers: ein eigener bester Plan je Szenario |
+| $\mathrm{EEV}$ | Kosten des Plans für die mittlere Nachfrage, über alle Szenarien ausgewertet |
+| $\mathrm{EVPI}$ | Wert der vollständigen Information: RP minus WS |
+| $\mathrm{VSS}$ | Wert der stochastischen Lösung: EEV minus RP |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/newsvendor-evpi-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Modell.** Stufe 1: Kapazität $x_j \ge 0$ je Standort $j$, Kosten $c\,x_j$, Budget $\sum_j x_j \le B$. Stufe 2, nach der Nachfrage $\xi = (D_1,\dots,D_J)$:
