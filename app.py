@@ -147,7 +147,7 @@ st.plotly_chart(build_ladder(info), width="stretch", key="ladder_chart")
 st.caption("Je weiter unten, desto mehr wissen Sie vor der Entscheidung. Der Abstand zwischen den Zeilen ist der Wert der zusätzlichen Information.")
 st.plotly_chart(build_plans(a.inst.mu, info.x_ev, info.x_rp), width="stretch", key="plans_chart")
 st.caption(
-    "Der Durchschnittsplan kürzt dort, wo Zukauf billiger ist als Vorhaltung, bis der Zukauf im Durchschnittsfall gerade noch reicht "
+    "Der Durchschnittsplan kürzt bei knappem Budget den Standort mit dem billigsten Zukauf, bis der Zukauf im Durchschnittsfall gerade noch reicht "
     "(hier höchstens 50 % der mittleren Nachfrage). Jede Mehrnachfrage danach landet in der dreifach bestraften Fehlmenge: "
     "der Plan unter Unsicherheit hält an solchen Standorten mehr vor."
 )
