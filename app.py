@@ -65,9 +65,9 @@ with st.expander("So funktioniert die Wert-der-Information-Analyse", expanded=Tr
         """
 Dieselben **200 gleich wahrscheinlichen Nachfrage-Szenarien** werden unter vier Informationsständen durchgerechnet:
 
-1. **Durchschnittsfall (EEV):** Sie planen für die mittlere Nachfrage und bezahlen dann, was wirklich eintritt.
-2. **Verteilung bekannt (RP):** Sie wählen den einen Plan, der im Mittel über alle Szenarien am billigsten ist.
-3. **Hellseher (WS):** Für jedes Szenario gibt es einen eigenen, bestmöglichen Plan, als kennten Sie die Nachfrage vorher.
+1. **Durchschnittsfall (EEV, Expected Result of using the EV Solution):** Sie planen für die mittlere Nachfrage und bezahlen dann, was wirklich eintritt.
+2. **Verteilung bekannt (RP, Recourse Problem):** Sie wählen den einen Plan, der im Mittel über alle Szenarien am billigsten ist.
+3. **Hellseher (WS, Wait-and-see):** Für jedes Szenario gibt es einen eigenen, bestmöglichen Plan, als kennten Sie die Nachfrage vorher.
 4. **Teilinformation:** Sie kennen nur den gemeinsamen Faktor der Nachfrage (in fünf Stufen) und planen je Stufe neu.
 
 **EVPI = RP − WS** ist das, was vollständiges Vorwissen höchstens wert wäre. **VSS = EEV − RP** ist das, was das Modellieren der Streuung bringt.
@@ -206,7 +206,7 @@ st.markdown(
     """
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Die 200 Szenarien sind die Verteilung** | Bei einer echten Stichprobe aus unbekannter Verteilung ist der Wert des besten Plans nach unten verzerrt: EVPI und VSS einer Stichprobe sind selbst Schätzungen mit Fehler. Hier ist dieser Fehler ausgeklammert. | [Stichproben-Demo (SAA)](https://github.com/sebastian-hanisch/saa-demo): zieht S Szenarien und misst Lücke und Täuschung des Optimalwerts |
+| **Die 200 Szenarien sind die Verteilung** | Bei einer echten Stichprobe aus unbekannter Verteilung ist der Wert des besten Plans nach unten verzerrt: EVPI und VSS einer Stichprobe sind selbst Schätzungen mit Fehler. Hier ist dieser Fehler ausgeklammert. | [Stichproben-Demo (SAA)](https://github.com/sebastian-hanisch/saa-demo): zieht S Szenarien und misst Optimalitätslücke (Optimality Gap) und Bias des Optimalwerts |
 | **Der Erwartungswert ist das Ziel** | Ein Plan, der im Mittel am billigsten ist, kann im Tail der Verteilung sehr teuer werden; EVPI und VSS sagen darüber nichts. | [CVaR-Demo](https://github.com/sebastian-hanisch/cvar-demo): Risiko als Ziel, Preis des Tails |
 | **EVPI ist eine Obergrenze** | Kein reales Informationssystem liefert das einzelne Szenario vorab. Die Teilinformation zeigt, wie viel davon schon ein einzelner gemeinsamer Faktor holt. | – |
 | **Lognormale Nachfrage mit einem gemeinsamen Faktor** | Schwerere Ränder oder Sprünge verändern, wie viel der Durchschnittsplan verschenkt. Hier nicht abgebildet. | – |
@@ -261,7 +261,7 @@ Die Teilinformation (Plan je Stufe $g$ von $z_0$) liegt dazwischen: $\mathrm{RP}
 
 **Ein Standort in geschlossener Form.** Für $D$ lognormal mit Erwartungswert $\mu$ und Log-Streuung $\sigma$ sei $L(a)=\mathbb E[(D-a)^+]=\mu\,\Phi(d+\sigma)-a\,\Phi(d)$ mit
 $d=\big(\ln(\mu/a)-\sigma^2/2\big)/\sigma$. Die erwarteten Kosten bei Kapazität $x$ sind $c\,x+s\,[L(x)-L(x+u)]+p\,L(x+u)$. Ist $s>c$, kauft der Hellseher genau $D$ vor:
-$\mathrm{WS}=c\,\mu$. Ohne Zukaufgrenze und ohne Strafe ist das Optimum das Quantil $F^{-1}\!\big((s-c)/s\big)$ (kritisches Verhältnis).
+$\mathrm{WS}=c\,\mu$. Ohne Zukaufgrenze und ohne Strafe ist das Optimum das Quantil $F^{-1}\!\big((s-c)/s\big)$ (kritisches Verhältnis, englisch Critical Ratio).
 
 **Literatur.** Die Begriffe EVPI und VSS folgen der Lehrbuchdarstellung bei Birge & Louveaux, *Introduction to Stochastic Programming* (Springer, 2. Aufl. 2011);
 das kritische Verhältnis geht auf Arrow, Harris & Marschak, *Optimal Inventory Policy*, Econometrica 19(3), 1951, S. 250–272 zurück (dort in einem allgemeineren Modell).

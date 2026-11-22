@@ -24,10 +24,10 @@ Formeln und Herleitung im 📐-Expander der App.
 
 Dieselben Szenarien unter vier Informationsständen, jeweils als **ein** lineares Programm (HiGHS über `scipy.optimize.linprog`; Szenarien einer Gruppe teilen sich einen Plan):
 
-- **EEV:** Plan für die mittlere Nachfrage, über alle Szenarien ausgewertet.
-- **RP:** der eine Plan mit den im Mittel niedrigsten Kosten (Verteilung bekannt).
+- **EEV** (Expected Result of using the EV Solution): Plan für die mittlere Nachfrage, über alle Szenarien ausgewertet.
+- **RP** (Recourse Problem): der eine Plan mit den im Mittel niedrigsten Kosten (Verteilung bekannt).
 - **Teilinformation:** ein Plan je Stufe des gemeinsamen Faktors (fünf gleich große Stufen).
-- **WS (Hellseher):** ein eigener Plan je Szenario.
+- **WS** (Wait-and-see, Hellseher): ein eigener Plan je Szenario.
 
 **EVPI = RP − WS**, **VSS = EEV − RP**, beide in Prozent der Kosten des Plans unter Unsicherheit. Beim einen Standort ist alles geschlossen (lognormale Teilerwartung); dort ist WS = Vorhaltungskosten · Mittel.
 
@@ -68,7 +68,7 @@ Zahlen mit dem Zufalls-Seed der Voreinstellung (7), jeweils in `tests/test_claim
 | Datei | Zweck |
 |---|---|
 | `app.py` | Streamlit-App |
-| `nvp_rng.py` | SplitMix64, Standardnormale per Inversion |
+| `nvp_rng.py` | SplitMix64, standardnormalverteilte Zufallszahlen per Inversion |
 | `nvp_scenario.py` | Instanz und Nachfrage-Szenarien |
 | `nvp_algorithm.py` | Kern: Stufe-2-Block, ein LP je Informationsstruktur, EVPI/VSS |
 | `nvp_closed_form.py` | Ein Standort in geschlossener Form (lognormal) |
